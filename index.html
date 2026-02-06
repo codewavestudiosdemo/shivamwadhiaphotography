@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>Shivam Wadhwa Photography | Best Wedding Photographer in Punjab & Phagwara</title>
-    <meta name="description" content="Official Shivam Wadhwa Photography. 64K+ Followers, 448+ Five-Star Reviews. Luxury Sikh & Hindu Wedding Cinematography globally.">
     
     <!-- FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@100;200;300;400&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@100;200;300;400;500&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
@@ -26,7 +25,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; background: #000; }
         body { background-color: var(--bg); color: var(--text-main); font-family: var(--font-sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
         body::after {
@@ -43,10 +42,10 @@
         @keyframes shine { to { background-position: 200% center; } }
 
         /* --- MAGIC INTRO --- */
-        #luxury-intro { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; background: #000; transition: 0.8s cubic-bezier(0.9, 0, 0.1, 1); }
+        #luxury-intro { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; background: #000; transition: 1.2s cubic-bezier(0.9, 0, 0.1, 1); }
         .intro-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); }
         .intro-content { position: relative; z-index: 10; text-align: center; width: 90%; }
-        .lux-reveal { font-family: var(--font-royal); font-size: clamp(1.2rem, 6vw, 3.5rem); color: transparent; background: var(--gold-grad); -webkit-background-clip: text; letter-spacing: 0.4em; opacity: 0; filter: blur(40px); transform: scale(0.8); animation: magicReveal 1s forwards, goldShimmer 4s linear infinite; }
+        .lux-reveal { font-family: var(--font-royal); font-size: clamp(1.2rem, 6vw, 3.5rem); color: transparent; background: var(--gold-grad); -webkit-background-clip: text; letter-spacing: 0.4em; opacity: 0; filter: blur(40px); transform: scale(0.8); animation: magicReveal 1.5s forwards; }
         .serving-text { font-family: var(--font-royal); font-size: 0.7rem; color: var(--gold-soft); margin-top: 20px; letter-spacing: 5px; opacity: 0; animation: fadeIn 0.5s 0.8s forwards; }
         @keyframes magicReveal { to { opacity: 1; filter: blur(0px); transform: scale(1); } }
         @keyframes fadeIn { to { opacity: 1; } }
@@ -63,34 +62,38 @@
         .lux-btn:hover { color: #000; box-shadow: 0 0 25px rgba(197, 160, 89, 0.4); }
 
         /* --- HERO --- */
-        .hero { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: 1.5s; z-index: 1; filter: brightness(0.6); }
+        .hero { position: relative; height: 100vh; width: 100vw; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: #000; }
+        .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: 1.5s ease-in-out; z-index: 1; filter: brightness(0.7); }
         .hero-bg.active { opacity: 1; }
-        .hero-content { position: relative; z-index: 10; width: 90%; }
-        .hero-title { font-size: clamp(2.2rem, 7.5vw, 5.2rem); line-height: 1.3; margin-bottom: 40px; }
+        .hero-content { position: relative; z-index: 10; width: 90%; pointer-events: none; }
+        .hero-content h1, .hero-content div { pointer-events: auto; }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 5.5rem); line-height: 1.2; margin-bottom: 40px; }
 
-        /* --- BRAND SECTION --- */
-        .brand-sec { padding: 120px 10%; display: flex; align-items: center; gap: 80px; flex-wrap: wrap; background: #080808; }
-        .brand-img-box { flex: 1; max-width: 380px; border: 1px solid #1a1a1a; padding: 15px; }
-        .brand-img-box img { width: 100%; filter: grayscale(100%); transition: 0.7s; }
-        .brand-content { flex: 1.5; min-width: 300px; }
-        .brand-content h2 { font-size: clamp(1.8rem, 5vw, 3rem); line-height: 1.2; margin: 15px 0; }
-        .stat-row { display: flex; gap: 40px; margin: 40px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 30px 0; flex-wrap: wrap; }
+        /* --- SIDE BY SIDE BRAND & OWNER --- */
+        .lux-flex-sec { padding: 120px 10%; display: flex; align-items: center; gap: 80px; background: #080808; overflow: hidden; }
+        .lux-flex-sec:nth-child(even) { flex-direction: row-reverse; background: #000; }
+        .flex-img { flex: 1; min-width: 45%; border: 1px solid #1a1a1a; padding: 15px; background: #050505; }
+        .flex-img img { width: 100%; filter: grayscale(100%); transition: 1s cubic-bezier(0.2, 1, 0.3, 1); }
+        .lux-flex-sec:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .flex-text { flex: 1.5; min-width: 45%; }
+        .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0; border-top: 1px solid #222; padding-top: 30px; }
         .stat-box h3 { font-size: 2.2rem; color: var(--gold-solid); font-family: var(--font-royal); }
-        .stat-box span { font-size: 0.65rem; letter-spacing: 2px; color: #666; display: block; margin-top: 10px; text-transform: uppercase; }
-        .rating-badge { border: 1px solid var(--gold-solid); padding: 2px 8px; font-size: 0.6rem; color: var(--gold-solid); font-weight: bold; margin-top: 10px; display: inline-block; letter-spacing: 2px; }
+        .stat-box span { font-size: 0.65rem; letter-spacing: 2px; color: #666; text-transform: uppercase; }
 
-        /* --- OWNER SECTION --- */
-        .owner-sec { padding: 120px 10%; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; background: #000; border-bottom: 1px solid #111; }
-        .owner-img-box { flex: 1; max-width: 400px; border: 1px solid #1a1a1a; padding: 15px; }
-        .owner-img-box img { width: 100%; filter: grayscale(100%); transition: 1s; }
-        .owner-content { flex: 1.5; min-width: 300px; }
-        .sm-icon { width: 55px; height: 55px; border: 1px solid #222; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-solid); font-size: 1.2rem; transition: 0.4s; background: rgba(255,255,255,0.02); }
+        .sm-icon { width: 55px; height: 55px; border: 1px solid #222; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--gold-solid); font-size: 1.2rem; transition: 0.4s; background: rgba(255,255,255,0.02); margin-right: 15px; }
         .sm-icon:hover { border-color: var(--gold-solid); background: var(--gold-solid); color: #000; transform: translateY(-8px); }
 
-        /* --- 7 SERVICES (MOBILE SWIPE) --- */
-        .services-wrapper { display: flex; flex-direction: column; }
-        .srv-row { display: flex; min-height: 80vh; border-bottom: 1px solid #111; flex-wrap: wrap; background: #030303; }
+        /* --- YT SLIDER --- */
+        .yt-premium-sec { padding: 100px 5%; background: #050505; border-top: 1px solid #111; }
+        .yt-track { display: flex; gap: 30px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; padding-bottom: 40px; }
+        .yt-track::-webkit-scrollbar { display: none; }
+        .yt-card { flex: 0 0 80%; min-width: 320px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 10px; transition: 0.5s; }
+        @media (min-width: 1024px) { .yt-card { flex: 0 0 45%; } }
+        .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .yt-video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+        /* --- 7 SERVICES (LIST) --- */
+        .srv-row { display: flex; min-height: 80vh; border-bottom: 1px solid #111; flex-wrap: wrap; background: #030303; align-items: center; }
         .srv-row:nth-child(even) { flex-direction: row-reverse; }
         .srv-vis { flex: 1.1; min-width: 50%; height: 80vh; overflow: hidden; }
         .srv-vis img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 1.5s; }
@@ -98,69 +101,51 @@
         .srv-points { list-style: none; margin: 25px 0; }
         .srv-points li { font-family: var(--font-serif); font-size: 1.1rem; color: #777; margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
         .srv-points li::before { content: "—"; color: var(--gold-solid); }
-        .lux-srv-link { font-family: var(--font-royal); font-size: 0.85rem; letter-spacing: 4px; position: relative; border-bottom: 1px solid var(--gold-solid); padding-bottom: 5px; cursor: pointer; }
 
-        /* --- PINTEREST RANDOM GRID (NO CROP) --- */
-        .masonry { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; 
-            padding: 0 5% 50px; display: none; 
-        }
-        .masonry.active { display: grid; animation: fadeIn 0.5s forwards; }
-        .g-item { border: 1px solid #111; overflow: hidden; background: #080808; }
+        /* --- GALLERY MASONRY --- */
+        .gallery-sec { padding: 120px 5%; background: #000; text-align: center; }
+        .tab-btn { background: none; border: none; color: #555; font-family: var(--font-royal); font-size: 0.9rem; letter-spacing: 3px; cursor: pointer; transition: 0.4s; padding: 0 20px 10px; border-bottom: 2px solid transparent; }
+        .tab-btn.active { color: var(--gold-solid); border-bottom-color: var(--gold-solid); }
+        .masonry { display: none; column-count: 3; column-gap: 20px; padding-top: 60px; width: 100%; }
+        .masonry.active { display: block; animation: luxReveal 1s forwards; }
+        .g-item { break-inside: avoid; margin-bottom: 20px; border: 1px solid #111; overflow: hidden; background: #080808; }
         .g-item img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.8s; }
-        .g-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .g-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
-     .yt-premium-sec { padding: 80px 5%; background: #000; border-top: 1px solid #111; }
-        .yt-lux-grid { display: flex; gap: 25px; overflow-x: auto; padding: 20px 0 50px; scrollbar-width: none; scroll-snap-type: x mandatory; }
-        .yt-lux-grid::-webkit-scrollbar { display: none; }
-        .yt-lux-card { flex: 0 0 75%; min-width: 300px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 10px; transition: 0.5s; }
-        @media (min-width: 1024px) { .yt-lux-card { flex: 0 0 40%; } }
-        .yt-lux-card:hover { border-color: var(--gold-solid); transform: translateY(-5px); }
-        .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
-        .yt-video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .yt-lux-caption { margin-top: 15px; font-family: var(--font-royal); font-size: 0.75rem; letter-spacing: 2px; color: var(--gold-solid); text-align: center; border-top: 1px solid #222; padding-top: 12px; } 
-        .rev-track { display: flex; animation: scrollMarquee 40s linear infinite; width: max-content; }
-        .rev-card { width: 450px; padding: 60px; background: #080808; border: 1px solid #151515; flex-shrink: 0; margin: 0 25px; }
+        @keyframes luxReveal { from { opacity: 0; transform: translateY(30px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+
+        /* --- TESTIMONIALS --- */
+        .marquee-sec { padding: 120px 0; background: #080808; overflow: hidden; }
+        .rev-track { display: flex; animation: scrollMarquee 75s linear infinite; width: max-content; }
+        .rev-card { width: 500px; padding: 60px; background: #0c0c0c; border: 1px solid #1a1a1a; margin: 0 25px; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- WHATSAPP FORM --- */
-        .form-sec { padding: 120px 10%; background: #080808; text-align: center; border-top: 1px solid #111; }
-        .lux-form { max-width: 600px; margin: 50px auto 0; text-align: left; }
-        .input-group { margin-bottom: 35px; border-bottom: 1px solid #222; }
-        .input-group label { font-family: var(--font-royal); font-size: 0.7rem; color: var(--gold-solid); letter-spacing: 3px; }
-        .input-group input { width: 100%; background: transparent; border: none; padding: 15px 0; color: #fff; font-family: var(--font-serif); font-size: 1.3rem; outline: none; }
+        /* --- INQUIRY FORM --- */
+        .form-sec { padding: 120px 10%; background: #050505; text-align: center; border-top: 1px solid #111; }
+        .lux-form { max-width: 650px; margin: 60px auto 0; text-align: left; }
+        .input-group { margin-bottom: 45px; border-bottom: 1px solid #222; }
+        .input-group label { font-family: var(--font-royal); font-size: 0.75rem; color: var(--gold-solid); letter-spacing: 3px; }
+        .input-group input, .input-group textarea { width: 100%; background: transparent; border: none; padding: 18px 0; color: #fff; font-family: var(--font-serif); font-size: 1.4rem; outline: none; resize: none; }
 
-        /* --- LUXURY FOOTER --- */
-        footer { position: relative; background: #020202; padding: 160px 8% 60px; border-top: 1px solid #1a1a1a; overflow: hidden; text-align: left; }
+        /* --- BIG FOOTER --- */
+        footer { position: relative; background: #020202; padding: 160px 8% 60px; border-top: 1px solid #1a1a1a; overflow: hidden; }
         .footer-watermark { position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-family: var(--font-royal); font-size: 18vw; color: rgba(255,255,255,0.015); z-index: 0; white-space: nowrap; pointer-events: none; }
-        .footer-logo { font-family: var(--font-royal); font-size: 3rem; color: #fff; margin-bottom: 40px; letter-spacing: 12px; border-bottom: 2px solid var(--gold-solid); display: inline-block; padding-bottom: 10px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; position: relative; z-index: 2; }
-        .f-col h4 { color: var(--gold-solid); font-size: 0.85rem; margin-bottom: 30px; border-bottom: 1px solid #222; padding-bottom: 10px; letter-spacing: 4px; }
-        .f-col a { display: block; color: #666; margin-bottom: 18px; transition: 0.4s; font-size: 1rem; font-family: var(--font-serif); }
+        .footer-logo { font-family: var(--font-royal); font-size: 3.5rem; color: #fff; margin-bottom: 40px; letter-spacing: 12px; border-bottom: 2px solid var(--gold-solid); display: inline-block; padding-bottom: 10px; }
+        .f-col h4 { color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 4px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .f-col a, .f-col p { display: block; color: #666; margin-bottom: 18px; font-family: var(--font-serif); font-size: 1.15rem; }
         .f-col a:hover { color: #fff; transform: translateX(10px); }
 
-        /* --- MOBILE UX --- */
-        @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .brand-sec { padding: 60px 5%; text-align: center; }
-            .stat-row { justify-content: center; }
-            .services-wrapper { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 30px; }
-            .srv-row { flex: 0 0 85vw; min-height: auto; flex-direction: column !important; scroll-snap-align: center; border: 1px solid #111; }
-            .srv-vis { height: 300px; width: 100%; flex: none; }
-            .srv-txt { padding: 30px 20px; text-align: center; flex: none; }
-            .srv-points { display: none; }
+        .credit-tag { position: absolute; bottom: 20px; right: 5%; font-family: var(--font-royal); font-size: 0.6rem; color: #444; letter-spacing: 2px; }
 
-            /* Random Pinterest Mobile Grid */
-            .masonry { grid-template-columns: repeat(4, 1fr); padding: 0 10px; gap: 10px; }
-            .g-item { grid-column: span 2; }
-            .g-item:nth-child(5n+1) { grid-column: span 4; }
-            .g-item:nth-child(7n+3) { grid-column: span 1; }
-
-            .rev-card { width: 320px; padding: 40px; }
+        @media (max-width: 991px) {
+            .lux-flex-sec, .lux-flex-sec:nth-child(even) { flex-direction: column !important; text-align: center; }
+            .srv-row, .srv-row:nth-child(even) { flex-direction: column !important; }
+            .srv-vis { height: 350px; width: 100%; }
+            .masonry { column-count: 1; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .rev-card { width: 380px; padding: 40px; }
         }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -182,10 +167,10 @@
 
     <!-- HERO -->
     <section class="hero">
-       <div class="hero-bg active" style="background-image: url('https://lh3.googleusercontent.com/d/1VYoajVVoOg4ssrJvblIwShCF5H6tY9Cq');"></div>
-<div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1Q_ORB_Ymrhrdr8tdhNznC0rqRhB6kVHk');"></div>
-<div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1FU63RH4D34mcSdr4e8C6RpWv0k3bynUg');"></div>
-<div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1uoHvI9FnU3Zp0il17bX-YOBjrWbzk-P_');"></div>
+        <div class="hero-bg active" style="background-image: url('https://lh3.googleusercontent.com/d/1VYoajVVoOg4ssrJvblIwShCF5H6tY9Cq');"></div>
+        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1Q_ORB_Ymrhrdr8tdhNznC0rqRhB6kVHk');"></div>
+        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1FU63RH4D34mcSdr4e8C6RpWv0k3bynUg');"></div>
+        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1uoHvI9FnU3Zp0il17bX-YOBjrWbzk-P_');"></div>
 
         <div class="hero-content">
             <h1 class="hero-title" data-aos="fade-up">The Power Behind <br><span class="gold-text">The Image</span></h1>
@@ -197,22 +182,21 @@
     </section>
 
     <!-- BRAND EMPIRE -->
-    <section class="brand-sec">
-       <div class="brand-img-box" data-aos="fade-right">
-    <img src="https://lh3.googleusercontent.com/d/1lrqQLFB83fxCELjdQWR8fFLFUWkSnGlu">
-</div>
-
-        <div class="brand-content" data-aos="fade-left">
+    <section class="lux-flex-sec">
+        <div class="flex-img" data-aos="fade-right">
+            <img src="https://lh3.googleusercontent.com/d/1lrqQLFB83fxCELjdQWR8fFLFUWkSnGlu">
+        </div>
+        <div class="flex-text" data-aos="fade-left">
             <h4 class="gold-text">L'EMPIRE</h4>
             <h2>Shivam Wadhwa Photography</h2>
-            <p class="serif">Capturing royal Sikh & Hindu weddings with a unique cinematic perspective. Relive your legacy through our lens.</p>
-            <div class="stat-row">
+            <p class="serif">Capturing royal Sikh & Hindu weddings with a unique cinematic perspective. Relive your legacy through our lens. High-end storytelling tailored for global royalty.</p>
+            <div class="stat-grid">
                 <div class="stat-box"><h3>64K+</h3><span>Instagram Family</span></div>
+                <div class="stat-box"><h3>448+</h3><span>5-Star Reviews</span></div>
+                <div class="stat-box"><h3>15K+</h3><span>Facebook Community</span></div>
                 <div class="stat-box"><h3>6K+</h3><span>YouTube Family</span></div>
-                <div class="stat-box"><h3>15K+</h3><span>Facebook Family</span></div>
-                <div class="stat-box"><h3>448+</h3><span>Reviews</span><br><div class="rating-badge">5-STAR RATING</div></div>
             </div>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="display: flex; gap: 15px;">
                 <a href="https://www.instagram.com/shivam_wadhwa_photography_phg/" target="_blank" class="sm-icon"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@shivamwadhwaphotographypha/videos" target="_blank" class="sm-icon"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.facebook.com/ShivamwadhwaeditingDesigning/" target="_blank" class="sm-icon"><i class="fab fa-facebook-f"></i></a>
@@ -221,99 +205,177 @@
     </section>
 
     <!-- OWNER PROFILE -->
-    <section class="owner-sec">
-       <div class="owner-img-box" data-aos="fade-right">
-    <img src="https://lh3.googleusercontent.com/d/1gVmz-UQivvy_pzX7pqS9KjVDCS8o1LvD">
-</div>
-
-        <div class="owner-content" data-aos="fade-left">
+    <section class="lux-flex-sec">
+        <div class="flex-img" data-aos="fade-left">
+            <img src="https://lh3.googleusercontent.com/d/1gVmz-UQivvy_pzX7pqS9KjVDCS8o1LvD">
+        </div>
+        <div class="flex-text" data-aos="fade-right">
             <h4 class="gold-text">THE CREATOR</h4>
             <h2 style="font-size: 2.8rem; margin-top: 10px;">Shivam Wadhwa</h2>
-            <p class="serif" style="margin-top: 20px; color: #777;">"I believe in the magic of unposed moments and the power of a single frame to tell an entire story."</p>
-            <div class="owner-sm" style="display:flex; gap:15px; margin-top:30px;">
+            <p class="serif" style="margin-top: 20px; color: #777;">"I believe in the magic of unposed moments and the power of a single frame to tell an entire story. Every ritual is a visual masterpiece waiting to be preserved."</p>
+            <div style="display:flex; gap:15px; margin-top:30px;">
                 <a href="https://www.instagram.com/shivam_wadhwa97/" target="_blank" class="sm-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/shivam.wadhwa.9256" target="_blank" class="sm-icon"><i class="fab fa-facebook-f"></i></a>
                 <a href="tel:+917888584171" class="sm-icon"><i class="fas fa-phone"></i></a>
             </div>
         </div>
-    </section> <!-- NEW PREMIUM CINEMATIC SLIDER -->
+    </section>
+
+    <!-- VIDEO SLIDER -->
     <section class="yt-premium-sec">
-        <div style="text-align:center; margin-bottom: 30px;"><h4 class="gold-text">Cinematic Legacy</h4></div>
-        <div class="yt-lux-grid">
-            <div class="yt-lux-card">
-                <div class="yt-video-box"><iframe id="p1" src="https://www.youtube.com/embed/0R-bPAy-YQ4?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
-                <div class="yt-lux-caption">PRE-WEDDING SHOOT</div>
-            </div>
-            <div class="yt-lux-card">
-                <div class="yt-video-box"><iframe id="p2" src="https://www.youtube.com/embed/IjozaKul5so?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
-                <div class="yt-lux-caption">4K LATEST CINEMATIC WEDDING</div>
-            </div>
-            <div class="yt-lux-card">
-                <div class="yt-video-box"><iframe id="p3" src="https://www.youtube.com/embed/fjxhr7zUbw8?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
-                <div class="yt-lux-caption">PUNJAB'S BEST PRE-WEDDING TEASER</div>
-            </div>
-        </div>
-    </section> 
-
-    <!-- 7 SERVICES (MOBILE SWIPE) -->
-    <section id="services">
-        <div style="text-align:center; padding:60px 0 20px; background:#030303;"><h4 class="gold-text">OUR SERVICES</h4></div>
-        <div class="services-wrapper">
-            <div class="srv-row">
-  <div class="srv-vis">
-    <img src="https://lh3.googleusercontent.com/d/1_mrHQWPKMqh13d7R8LiKQs8UYG0pas2J">
-  </div>
-  <div class="srv-txt">
-    <h3 class="gold-text">01. Wedding Cinema</h3>
-    <ul class="srv-points">
-      <li>4K Narrative Films</li>
-      <li>Signature Color Grading</li>
-      <li>Multi-Angle Shots</li>
-    </ul>
-    <a onclick="wa('Cinema')" class="lux-srv-link">INQUIRE</a>
-  </div>
-</div>
-
-            <div class="srv-row"><div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1zP705D9zG35jkjjhHsHH59RakJyqfPs0"></div><div class="srv-txt"><h3 class="gold-text">02. Candid Soul Art</h3><ul class="srv-points"><li>Emotional Captures</li><li>Zero Interference</li><li>Fine Art Process</li></ul><a onclick="wa('Candid')" class="lux-srv-link">INQUIRE</a></div></div>
-            <div class="srv-row">
-  <div class="srv-vis">
-    <img src="https://lh3.googleusercontent.com/d/14uJoTnayhkuQF4glZlx-SWP1zZLvAuvy">
-  </div>
-  <div class="srv-txt">
-    <h3 class="gold-text">03. Pre-Wedding Tales</h3>
-    <ul class="srv-points">
-      <li>Global Scouting</li>
-      <li>Editorial Styling</li>
-      <li>Cinematic Trailer</li>
-    </ul>
-    <a onclick="wa('Pre-Wedding')" class="lux-srv-link">INQUIRE</a>
-  </div>
-</div>
-
-            <div class="srv-row"><div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1AS6Pv5IWCRCOVL2RdedkR0kQ7Fnctw-f"></div><div class="srv-txt"><h3 class="gold-text">04. Sacred Rituals</h3><ul class="srv-points"><li>Anand Karaj Depth</li><li>Traditional Nupitals</li><li>Family Portraits</li></ul><a onclick="wa('Rituals')" class="lux-srv-link">INQUIRE</a></div></div>
-            <div class="srv-row"><div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1W7C4vArkEa6uyVb9SGJ6gH2JHtHegFPD"></div><div class="srv-txt"><h3 class="gold-text">05. Editorial Portraits</h3><ul class="srv-points"><li>Vogue Lighting</li><li>Bridal Glamour</li><li>High-End Retouch</li></ul><a onclick="wa('Portraits')" class="lux-srv-link">INQUIRE</a></div></div>
-            <div class="srv-row"><div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/11_iOeB6BwR4nhhu74rSmDjkMKLdms7do"></div><div class="srv-txt"><h3 class="gold-text">06. Global Destination</h3><ul class="srv-points"><li>International Crew</li><li>Logistics Handling</li><li>Seamless Travel</li></ul><a onclick="wa('Destination')" class="lux-srv-link">INQUIRE</a></div></div>
-            <div class="srv-row"><div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1C6HyRjGckjeme35IQdwOYUcmqnVomL0f"></div><div class="srv-txt"><h3 class="gold-text">07. Heirloom Albums</h3><ul class="srv-points"><li>Italian Leather</li><li>Archival Quality</li><li>Story Designs</li></ul><a onclick="wa('Albums')" class="lux-srv-link">INQUIRE</a></div></div>
+        <div style="text-align:center; margin-bottom: 40px;"><h4 class="gold-text">Cinematic Legacy</h4></div>
+        <div class="yt-track">
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p1" src="https://www.youtube.com/embed/0R-bPAy-YQ4?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">PRE-WEDDING CINEMA</div></div>
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p2" src="https://www.youtube.com/embed/IjozaKul5so?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">LUXURY WEDDING FILM</div></div>
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p3" src="https://www.youtube.com/embed/fjxhr7zUbw8?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">PUNJABI TEASER</div></div>
         </div>
     </section>
 
-    <!-- PINTEREST GALLERY -->
-    <section id="collection" style="padding: 100px 5%; background: #000; text-align: center;">
-        <h2 style="font-family: var(--font-royal); margin-bottom: 50px;">The Signature Gallery</h2>
-        <div class="col-tabs">
-            <button class="tab-btn active" onclick="openTab(event, 'tab-pre')">PRE-WEDDING</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-bridal')">BRIDAL PORTRAITS</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-wedding')">THE WEDDING DAY</button>
+    <!-- 7 SERVICES -->
+    <section id="services">
+        <div style="text-align:center; padding:100px 0 20px; background:#030303;"><h4 class="gold-text">OUR EXPERTISE</h4></div>
+        
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1_mrHQWPKMqh13d7R8LiKQs8UYG0pas2J"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">01. Wedding Cinema</h3>
+                <ul class="srv-points"><li>4K Narrative Films</li><li>Signature Color Grading</li><li>Multi-Angle Emotion Captures</li></ul>
+                <a onclick="wa('Wedding Cinema')" class="lux-btn">GET CINEMA QUOTE</a>
+            </div>
         </div>
-        <div id="tab-pre" class="masonry active"> <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FKKsjZ12GmsvJwg3e97wFuKnCjpcGnbR"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1QU6uiHV0cpnmNViMmcOiB1p1PruNia3-"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1hxW8PQf5ulYVEwENIBF0ts2I0clPj4hn"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1oWSxNDiE7Is4zT7mxN5to9_HmQO-qtU3"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1hx-alXgGOoF3yN1j9mi6JgWcsTqwwmtL"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1E9sOLtiKKXlKwPhBxbG0OwhXARx8pQqj"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/16jRixN-4FR3achQ1TLMAbwM2knkn7xwU"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1HJeMOa_5gbxEtHshu7ppP3ukRJnT6Pc-"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1dyp1dDaEKa66Pt0E-F3SEya77JkY64E8"></div>
 
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1zP705D9zG35jkjjhHsHH59RakJyqfPs0"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">02. Candid Soul Art</h3>
+                <ul class="srv-points"><li>Emotional Captures</li><li>Zero Interference</li><li>Fine Art Retouching</li></ul>
+                <a onclick="wa('Candid Soul Art')" class="lux-btn">BOOK CANDID SESSION</a>
+            </div>
+        </div>
+
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/14uJoTnayhkuQF4glZlx-SWP1zZLvAuvy"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">03. Pre-Wedding Tales</h3>
+                <ul class="srv-points"><li>Global Scouting</li><li>Editorial Styling</li><li>Cinematic Love Trailer</li></ul>
+                <a onclick="wa('Pre-Wedding Tales')" class="lux-btn">DISCUSS LOCATIONS</a>
+            </div>
+        </div>
+
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1AS6Pv5IWCRCOVL2RdedkR0kQ7Fnctw-f"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">04. Sacred Rituals</h3>
+                <ul class="srv-points"><li>Anand Karaj Depth</li><li>Traditional Nupitals</li><li>Family Portraits</li></ul>
+                <a onclick="wa('Sacred Rituals')" class="lux-btn">ENQUIRE TRADITIONS</a>
+            </div>
+        </div>
+
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1W7C4vArkEa6uyVb9SGJ6gH2JHtHegFPD"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">05. Editorial Portraits</h3>
+                <ul class="srv-points"><li>Vogue Lighting</li><li>Bridal Glamour</li><li>High-End Retouch</li></ul>
+                <a onclick="wa('Editorial Portraits')" class="lux-btn">VIEW PORTRAIT STYLES</a>
+            </div>
+        </div>
+
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/11_iOeB6BwR4nhhu74rSmDjkMKLdms7do"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">06. Global Destination</h3>
+                <ul class="srv-points"><li>International Crew</li><li>Logistics Handling</li><li>Travel Coverage</li></ul>
+                <a onclick="wa('Global Destination')" class="lux-btn">PLAN GLOBAL SHOOT</a>
+            </div>
+        </div>
+
+        <div class="srv-row">
+            <div class="srv-vis"><img src="https://lh3.googleusercontent.com/d/1C6HyRjGckjeme35IQdwOYUcmqnVomL0f"></div>
+            <div class="srv-txt">
+                <h3 class="gold-text">07. Heirloom Albums</h3>
+                <ul class="srv-points"><li>Custom Handcrafted Design</li><li>Archival Quality</li><li>Story Layouts</li></ul>
+                <a onclick="wa('Heirloom Albums')" class="lux-btn">SEE ALBUM DESIGNS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIGNATURE GALLERY (WEDDING DAY FIXED) -->
+    <section class="gallery-sec" id="collection">
+        <h2 style="font-family: var(--font-royal); margin-bottom: 50px; letter-spacing: 5px;">THE SIGNATURE COLLECTION</h2>
+        <div class="col-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'tab-wedding')">THE WEDDING DAY</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-bridal')">BRIDAL PORTRAITS</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-pre')">PRE-WEDDING</button>
+        </div>
+
+        <!-- Wedding Day Images -->
+        <div id="tab-wedding" class="masonry active">
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1l4Kzg7X2iuZZSAXqqSdlPxPbioUYj0V7"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Ex-HzeVfYoDp6gFUGIss0DUVQbN6SrCO"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1qmW7uUi7FJ4cgUNjaK2njo9idc01VOC_"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/19_VGTUdehibU8z3LqEge-st-rUSgXX9P"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Nfp1FcPm480WsHuHtXxQJV0FBVE77P37"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1SN8WYmzr5tXhSjicLGCu1wH1AGW3EzFs"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1XUbcqsejMx65TJrbYn1TwahQBOJFv0bW"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1rviTbuguRma-D8wqDZ1fS3sNRJo03loI"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1xKE4cgpelhlwxv03DGz7Yc15pRLjAhmz"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/16ZSy3Xx7XwfyJMpvYp6vvLGirYkvk2bs"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1u_AR9j39FCUON-UpEEFS34gCPxnmqzKQ"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Rn9_Aqyleh21eGOsAcMK432uP_gK65gp"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Vp83QwATN9z26Bpx6c2KdpLg1Kgk0GZQ"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PhWF35GeI08RmDVgtwKdi_7UzucY_XMA"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/18Ru5mGBQpIGIVV0a_sb9sdpMK8LB1o6y"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Cg1eLxd4dIa98r7W1yGW0Ca2RE12BumF"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1o5kWXXD7WlX6hsIMI3P2xjV6XRvanG34"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1cF23yJ--kZTnTzXRrB8dBR1eHNBuFDJa"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1xjt539RaBjSwhf-lR6YpkX88744SX3Ex"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/17TcMNx45VvuzO5LBb55LZCK4p7WukM1k"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Yn0nOEyYo3deMbwWb6ggr19FBq_R4Jm7"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1423Hnc2a-eVCqn3rzBF9OktH1osGDwoj"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1WsBpdMZqwv05X7Qf2x9BgoZtD0GjY6Kd"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1SGaqBhkCSdymnSOMUXkZntzQEt4a7URQ"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1botmTJisXImKzLJEUBUl110h3ATMFfVM"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/18KC0vJo41AdDLRgzrO8dqITx32E-g4C-"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1YC5o72yqlAgPMyycWwCTw5BZ8FtsKlZ_"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1zt4yrWTo5N77rBwUBRko8_dxr92v62kF"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1pAapUgCeG58jWGBe3zSB8ovd9-JS4ZFX"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FQa8kzklht2_zXmOW-zzSEYv-2_qfD5c"></div>
+        </div>
+
+        <!-- Bridal Tab -->
+        <div id="tab-bridal" class="masonry">
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PAutU6xnJOiJOdXuZRhaF7E5jgSkJJk7"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1e8jGNEA0KT4pE1aGVQF0pcGDSAmTeAnr"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FN2NLM_oXYhas3oUgvWSYJGhy6CQKRBl"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1vtbslfuf2NIDAxLWrOthF33LnlXEpqa8"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FWhWR9ZpEeBWC5w_RvDlHoylndVkCCxW"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1WL4Z9kcpqEWnPxBsSFQoBSj7NlFbSLAj"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1BoaU7rn_EfSuPZlvnQWSNETKll0X7PnZ"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PrkWgeJEre3pHHRsAZJdGNUmQa4VISAo"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1lBEh7zEkbMmS-SW10QL5cuSv1LO4xwg4"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1cwLYwQsugzcyKtkInuAIL1fe47pBO3lq"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1emFZndKEmwo5LbhOsrOwyzOUZiZOeodJ"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1AvQYdgFllTbkj5N7Ck7Yd_bf9SsfCYEt"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1R5zbQuh0_nT4MedgQKD6omak7BybbAmd"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1-GNfUG_Jr4WL8JQMhnhgbFkUYSKylLL5"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1rAh4qO8gJ8Ztx57T2Cwp8uIi1Cy1aLJo"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Nb0bfidtLsg0TRgPRpY7XCPAWFYa47TV"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1c5l9Tk_ZLnn_HFIGhIY-IrhLkLJTnlaM"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1w3vFqyDlBAaAqVPJJNtrC1VM-pPCW1A2"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1eZp6yVKPp7BkiKEoO_9vF2nZv1E8F-hv"></div>
+        </div>
+
+        <!-- Pre-Wedding Tab -->
+        <div id="tab-pre" class="masonry">
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FKKsjZ12GmsvJwg3e97wFuKnCjpcGnbR"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1QU6uiHV0cpnmNViMmcOiB1p1PruNia3-"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1hxW8PQf5ulYVEwENIBF0ts2I0clPj4hn"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1oWSxNDiE7Is4zT7mxN5to9_HmQO-qtU3"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1hx-alXgGOoF3yN1j9mi6JgWcsTqwwmtL"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1E9sOLtiKKXlKwPhBxbG0OwhXARx8pQqj"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/16jRixN-4FR3achQ1TLMAbwM2knkn7xwU"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1HJeMOa_5gbxEtHshu7ppP3ukRJnT6Pc-"></div>
+            <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1dyp1dDaEKa66Pt0E-F3SEya77JkY64E8"></div>
             <div class="g-item"><img src="https://lh3.googleusercontent.com/d/13BjBPRx1GFiCBJWQE8xCpkMSfIIKwOTX"></div>
             <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1az9w6Y9eT7J8Nvct5N9zBUBpt8vHoWLo"></div>
             <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1uyAf4unjTNAwhkoM2QrjAM-JDeEmpGDu"></div>
@@ -323,186 +385,121 @@
             <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1KU_J_v8tQIuIFqmBT2YuCsu6OYDFL6hM"></div>
             <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1voCY8c4f9yVAIbYuaQSpPrFjupjPls88"></div>
         </div>
-        <div id="tab-bridal" class="masonry">
-           <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PAutU6xnJOiJOdXuZRhaF7E5jgSkJJk7"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1e8jGNEA0KT4pE1aGVQF0pcGDSAmTeAnr"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FN2NLM_oXYhas3oUgvWSYJGhy6CQKRBl"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1vtbslfuf2NIDAxLWrOthF33LnlXEpqa8"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FWhWR9ZpEeBWC5w_RvDlHoylndVkCCxW"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1WL4Z9kcpqEWnPxBsSFQoBSj7NlFbSLAj"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1BoaU7rn_EfSuPZlvnQWSNETKll0X7PnZ"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PrkWgeJEre3pHHRsAZJdGNUmQa4VISAo"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1lBEh7zEkbMmS-SW10QL5cuSv1LO4xwg4"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1cwLYwQsugzcyKtkInuAIL1fe47pBO3lq"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1emFZndKEmwo5LbhOsrOwyzOUZiZOeodJ"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1AvQYdgFllTbkj5N7Ck7Yd_bf9SsfCYEt"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1R5zbQuh0_nT4MedgQKD6omak7BybbAmd"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1-GNfUG_Jr4WL8JQMhnhgbFkUYSKylLL5"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1rAh4qO8gJ8Ztx57T2Cwp8uIi1Cy1aLJo"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Nb0bfidtLsg0TRgPRpY7XCPAWFYa47TV"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1c5l9Tk_ZLnn_HFIGhIY-IrhLkLJTnlaM"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1w3vFqyDlBAaAqVPJJNtrC1VM-pPCW1A2"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1eZp6yVKPp7BkiKEoO_9vF2nZv1E8F-hv"></div>
-
-        </div>
-        <div id="tab-wedding" class="masonry">
-           <div class="g-item"><img src="https://lh3.googleusercontent.com/d/1l4Kzg7X2iuZZSAXqqSdlPxPbioUYj0V7"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Ex-HzeVfYoDp6gFUGIss0DUVQbN6SrCO"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1qmW7uUi7FJ4cgUNjaK2njo9idc01VOC_"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/19_VGTUdehibU8z3LqEge-st-rUSgXX9P"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Nfp1FcPm480WsHuHtXxQJV0FBVE77P37"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1SN8WYmzr5tXhSjicLGCu1wH1AGW3EzFs"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1XUbcqsejMx65TJrbYn1TwahQBOJFv0bW"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1rviTbuguRma-D8wqDZ1fS3sNRJo03loI"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1xKE4cgpelhlwxv03DGz7Yc15pRLjAhmz"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/16ZSy3Xx7XwfyJMpvYp6vvLGirYkvk2bs"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1u_AR9j39FCUON-UpEEFS34gCPxnmqzKQ"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Rn9_Aqyleh21eGOsAcMK432uP_gK65gp"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Vp83QwATN9z26Bpx6c2KdpLg1Kgk0GZQ"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1PhWF35GeI08RmDVgtwKdi_7UzucY_XMA"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/18Ru5mGBQpIGIVV0a_sb9sdpMK8LB1o6y"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Cg1eLxd4dIa98r7W1yGW0Ca2RE12BumF"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1o5kWXXD7WlX6hsIMI3P2xjV6XRvanG34"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1cF23yJ--kZTnTzXRrB8dBR1eHNBuFDJa"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1xjt539RaBjSwhf-lR6YpkX88744SX3Ex"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/17TcMNx45VvuzO5LBb55LZCK4p7WukM1k"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1Yn0nOEyYo3deMbwWb6ggr19FBq_R4Jm7"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1423Hnc2a-eVCqn3rzBF9OktH1osGDwoj"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1WsBpdMZqwv05X7Qf2x9BgoZtD0GjY6Kd"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1SGaqBhkCSdymnSOMUXkZntzQEt4a7URQ"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1botmTJisXImKzLJEUBUl110h3ATMFfVM"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/18KC0vJo41AdDLRgzrO8dqITx32E-g4C-"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1YC5o72yqlAgPMyycWwCTw5BZ8FtsKlZ_"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1zt4yrWTo5N77rBwUBRko8_dxr92v62kF"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1pAapUgCeG58jWGBe3zSB8ovd9-JS4ZFX"></div>
-<div class="g-item"><img src="https://lh3.googleusercontent.com/d/1FQa8kzklht2_zXmOW-zzSEYv-2_qfD5c"></div>
-
-        </div>
     </section>
 
-    
-
-    <!-- 8 AUTO REVIEWS -->
-    <section style="padding: 100px 0; background: #080808; overflow: hidden;">
-        <h4 class="gold-text" style="text-align: center; margin-bottom: 40px; letter-spacing: 5px;">TESTIMONIALS</h4>
+    <!-- 15 PREMIUM EXTENDED REVIEWS -->
+    <section class="marquee-sec">
+        <h4 class="gold-text" style="text-align: center; margin-bottom: 50px; letter-spacing: 5px;">TESTIMONIALS</h4>
         <div class="rev-track">
-           <div class="rev-track">
-            <!-- 1 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam Wadhwa Photography is undoubtedly the best in Phagwara. They didn't just take photos, they captured the very soul of our wedding. Every frame feels like a cinematic masterpiece."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet (Ludhiana)</h5></div>
-            <!-- 2 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage of our Hindu ceremony. Shivam and his team have a unique way with lighting that makes everything look royal and timeless. The cinematic teaser was beyond our expectations."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali (Delhi)</h5></div>
-            <!-- 3 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. He caught moments we didn't even realize were happening. If you want someone who puts heart and soul into every shot, he is the only one you should trust."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita (Chandigarh)</h5></div>
-            <!-- 4 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Unmatched professionalism in the wedding industry. From our first meeting to the final album delivery, everything was seamless. Their ability to handle large crowds while getting perfect shots is amazing."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Harjot & Simran (Amritsar)</h5></div>
-            <!-- 5 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The color grading and aesthetic finish of their work are simply the best. They have a very modern, high-end approach to traditional Punjabi weddings. Every guest was praising their team's work."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Parth & Mehak (Jalandhar)</h5></div>
-            <!-- 6 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Luxury team in every sense. Shivam knows how to capture the legacy of a family. The heirloom albums they provided are of museum-grade quality and will be cherished by us forever."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Navdeep & Simran (Amritsar)</h5></div>
-            <!-- 7 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Our pre-wedding shoot was like a movie experience. Shivam scouted the best locations and guided us through every pose perfectly. We felt so comfortable and the results are absolutely stunning."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Arjun & Diya (Delhi)</h5></div>
-            <!-- 8 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The films are museum-grade. Truly royal feeling. They captured the emotions of our parents so beautifully. It is not just a wedding video, it is a treasure of memories for our entire family."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Karan & Preeti (Mumbai)</h5></div>
-            <!-- 9 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Their candid photography is out of this world. No forced poses, just pure emotions and joy. They stayed late to ensure every ritual was covered. Truly dedicated and passionate team."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Sukhman & Reet (Patiala)</h5></div>
-            <!-- 10 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Incredible experience! The way they use natural light for bridal portraits is magical. I have never seen such high-end retouching that still looks so natural and elegant. Simply the best."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Ishita & Sameer (London)</h5></div>
-            <!-- 11 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"We booked them for our destination wedding and they handled everything perfectly. The crew was professional, punctual, and very easy to work with throughout the intense 3-day event."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rahul & Priya (Rajasthan)</h5></div>
-            <!-- 12 -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"If you are looking for the gold standard of cinematic wedding films in Punjab, don't look anywhere else. Shivam Wadhwa Photography delivers exactly what they promise—pure luxury."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Gurpreet & Nimrat (Phagwara)</h5></div>
-            
-            <!-- Loop Stability (Pehle 3 reviews repeat taaki animation jump na kare) -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam Wadhwa Photography is undoubtedly the best in Phagwara. They didn't just take photos, they captured the very soul of our wedding."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage of our Hindu ceremony. Shivam and his team have a unique way with lighting that makes everything look royal."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. He caught moments we didn't even realize were happening. Heart and soul in every single shot."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Undoubtedly the best in Phagwara. They captured the very soul of our wedding. Every frame feels like a cinematic masterpiece we will cherish for our entire lives."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet (Ludhiana)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage of our Hindu ceremony. Shivam has a unique way with lighting that makes everything look royal and timeless. Beyond our expectations."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali (Delhi)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. He caught moments we didn't even realize were happening. High-end retouching that still looks natural and elegant."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita (Chandigarh)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Unmatched professionalism in the industry. From the first meeting to final album, everything was seamless. Truly the gold standard of Punjabi weddings."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Harjot & Simran (Amritsar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The color grading and aesthetic finish are simply the best. They have a very modern approach to traditional ceremonies. Every guest was praising their work."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Parth & Mehak (Jalandhar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Luxury team in every sense. Shivam knows how to capture family legacy. The heirloom albums are of museum-grade quality. Worth every single rupee."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Navdeep & Simran (Amritsar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Our pre-wedding shoot was like a movie experience. Shivam scouted the best locations and guided us perfectly. We felt so comfortable and natural."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Arjun & Diya (Delhi)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Captured the emotions of our parents so beautifully. It is not just a video, it is a treasure of memories for our family. Truly a professional team."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Karan & Preeti (Mumbai)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Their candid photography is out of this world. No forced poses, just pure joy. They stayed late to ensure every single ritual was covered perfectly."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Sukhman & Reet (Patiala)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The way they use natural light for bridal portraits is magical. I have never seen such high-end retouching that still looks natural. Simply the best."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Ishita & Sameer (London)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Booked for our destination wedding and they handled everything perfectly. Punctual, professional, and very creative throughout the intense 3-day event."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rahul & Priya (Rajasthan)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Gold standard of cinematic films. Shivam delivers exactly what he promises—pure luxury. Our wedding film looks like a Netflix production."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Gurpreet & Nimrat (Phagwara)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Absolute perfection. The team is humble and very talented. They made us feel like stars on our big day. The final gallery was mind blowing."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Inder & Jasleen (Jalandhar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The level of detail is insane. From the jewelry to the smiles, they caught everything. If you want high-end memories, this is the only team."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Sunny & Pooja (New York)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Highly recommended for royal weddings. They understand the depth of Sikh rituals and capture them with immense respect and beauty."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Manpreet & Kiran (Bathinda)</h5></div>
+            <!-- Loop Stability -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Undoubtedly the best in Phagwara. Every frame feels like a cinematic masterpiece we will cherish for our entire lives."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet</h5></div>
         </div> 
     </section>
 
-    <!-- FORM -->
+    <!-- INQUIRY FORM -->
     <section class="form-sec" id="enquiry">
         <h4 class="gold-text">Reserve Your Legacy</h4>
         <div class="lux-form">
             <div class="input-group"><label>FULL NAME</label><input type="text" id="name" placeholder="E.g. Arjun & Diya"></div>
             <div class="input-group"><label>EVENT DATE</label><input type="text" id="date" placeholder="DD/MM/YYYY"></div>
-            <div class="input-group"><label>MESSAGE</label><input type="text" id="msg" placeholder="Tell us about your event"></div>
+            <div class="input-group"><label>EVENT MESSAGE</label><textarea id="msg" rows="1" placeholder="Tell us about your event"></textarea></div>
             <button onclick="sendEnquiry()" class="lux-btn" style="width:100%">SEND WHATSAPP ENQUIRY</button>
         </div>
     </section>
 
-    <!-- BIG LUXURY FOOTER -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-watermark">SHIVAM</div>
         <div class="footer-grid">
             <div class="f-col">
                 <div class="footer-logo">SWP</div>
-                <p class="serif" style="color:#555">Capturing royal legacies globally.</p>
+                <p class="serif" style="color:#555">Capturing royal legacies globally with a cinematic vision. Based in Punjab & Delhi NCR.</p>
                 <div style="display:flex; gap:15px; margin-top:40px;">
-                    <a href="https://www.instagram.com/shivam_wadhwa_photography_phg/" class="sm-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@shivamwadhwaphotographypha/videos" class="sm-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/ShivamwadhwaeditingDesigning/" class="sm-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/shivam_wadhwa_photography_phg/" target="_blank" class="sm-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@shivamwadhwaphotographypha/videos" target="_blank" class="sm-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/ShivamwadhwaeditingDesigning/" target="_blank" class="sm-icon"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
-            <div class="f-col"><h4>DISCOVER</h4><a href="#services">Experience</a><a href="#collection">Gallery</a></div>
-            <div class="f-col"><h4>STUDIOS</h4><a>Phagwara, Punjab</a><a>New Delhi, NCR</a></div>
+            <div class="f-col"><h4>DISCOVER</h4><a href="#services">Experience</a><a href="#collection">Gallery</a><a href="#enquiry">Contact</a></div>
+            <div class="f-col"><h4>STUDIOS</h4><p>Phagwara, Punjab</p><p>New Delhi, NCR</p></div>
             <div class="f-col"><h4>CONTACT</h4><a href="tel:+917888584171" style="color:var(--gold-solid);">+91 78885 84171</a></div>
         </div>
-        <div style="margin-top:100px; text-align:center; color:#333; font-size:0.75rem; letter-spacing:4px">© 2026 SHIVAM WADHWA PHOTOGRAPHY.</div>
+        <div style="margin-top:100px; text-align:center; color:#333; font-size:0.7rem; letter-spacing:4px">© 2026 SHIVAM WADHWA PHOTOGRAPHY. ALL RIGHTS RESERVED.</div>
+        <div class="credit-tag">Made By CodeWaveStudios</div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-   <script>
-    // --- Existing Features ---
-    AOS.init({ duration: 1200, once: true });
-    window.addEventListener('load', () => { setTimeout(() => { document.body.classList.add('loaded'); }, 2000); });
-    
-    function openTab(evt, tabName) {
-        const grids = document.getElementsByClassName("masonry");
-        for (let i = 0; i < grids.length; i++) { grids[i].classList.remove("active"); }
-        const btns = document.getElementsByClassName("tab-btn");
-        for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-        document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.classList.add("active");
-    }
+    <script>
+        AOS.init({ duration: 1200, once: true });
+        window.addEventListener('load', () => { setTimeout(() => { document.body.classList.add('loaded'); }, 2000); });
+        
+        function openTab(evt, tabName) {
+            const grids = document.querySelectorAll(".masonry");
+            grids.forEach(g => g.classList.remove("active"));
+            const btns = document.querySelectorAll(".tab-btn");
+            btns.forEach(b => b.classList.remove("active"));
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
 
-    let sIndex = 0;
-    const slides = document.querySelectorAll('.hero-bg');
-    setInterval(() => { slides[sIndex].classList.remove('active'); sIndex = (sIndex + 1) % slides.length; slides[sIndex].classList.add('active'); }, 4000);
+        let sIndex = 0;
+        const slides = document.querySelectorAll('.hero-bg');
+        setInterval(() => { slides[sIndex].classList.remove('active'); sIndex = (sIndex + 1) % slides.length; slides[sIndex].classList.add('active'); }, 4500);
 
-    function sendEnquiry() {
-        const n = document.getElementById('name').value;
-        const d = document.getElementById('date').value;
-        const m = document.getElementById('msg').value;
-        window.open(`https://wa.me/917888584171?text=New Inquiry:%0AName: ${n}%0ADate: ${d}%0ADetails: ${m}`, '_blank');
-    }
+        function sendEnquiry() {
+            const n = document.getElementById('name').value;
+            const d = document.getElementById('date').value;
+            const m = document.getElementById('msg').value;
+            window.open(`https://wa.me/917888584171?text=New Inquiry:%0AName: ${n}%0ADate: ${d}%0ADetails: ${m}`, '_blank');
+        }
 
-    function wa(s) { window.open(`https://wa.me/917888584171?text=Interested in ${s} experience.`, '_blank'); }
+        // --- UNIQUE WHATSAPP MESSAGES PER SERVICE ---
+        function wa(s) { 
+            let msg = "";
+            if(s === 'Wedding Cinema') msg = "Hi Shivam, I am interested in your Luxury Wedding Cinema. Please share your cinematic packages.";
+            else if(s === 'Candid Soul Art') msg = "Hi Shivam, I want to book a Candid Soul Art session. Can you provide details?";
+            else if(s === 'Pre-Wedding Tales') msg = "Hi Shivam, I love your Pre-Wedding Tales. Let's discuss location scouting.";
+            else if(s === 'Sacred Rituals') msg = "Hi Shivam, inquiring about coverage for our traditional Sacred Rituals.";
+            else if(s === 'Editorial Portraits') msg = "Hi Shivam, I am looking for high-end Editorial Bridal Portraits. Can I see your portfolio?";
+            else if(s === 'Global Destination') msg = "Hi Shivam, planning a Destination Wedding and want your team for global coverage.";
+            else if(s === 'Heirloom Albums') msg = "Hi Shivam, I want to see your handcrafted Heirloom Wedding Albums.";
+            
+            window.open(`https://wa.me/917888584171?text=${encodeURIComponent(msg)}`, '_blank'); 
+        }
 
-    // --- YouTube Auto-Pause Feature ---
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    var players = [];
-    function onYouTubeIframeAPIReady() {
-        var ids = ['p1', 'p2', 'p3'];
-        ids.forEach(function(id) {
-            players.push(new YT.Player(id, {
-                events: { 'onStateChange': onPlayerStateChange }
-            }));
-        });
-    }
-
-    function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING) {
-            players.forEach(function(p) {
-                if (p.getIframe().id !== event.target.getIframe().id) {
-                    p.pauseVideo();
-                }
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        var players = [];
+        function onYouTubeIframeAPIReady() {
+            var ids = ['p1', 'p2', 'p3'];
+            ids.forEach(function(id) {
+                players.push(new YT.Player(id, { events: { 'onStateChange': onPlayerStateChange } }));
             });
         }
-    }
-</script> 
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                players.forEach(function(p) {
+                    if (p.getIframe().id !== event.target.getIframe().id) { p.pauseVideo(); }
+                });
+            }
+        }
+    </script>
 </body>
 </html>
