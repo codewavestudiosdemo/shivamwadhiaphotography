@@ -27,11 +27,8 @@
         html { scroll-behavior: smooth; overflow-x: hidden; background: #000; }
         body { background-color: var(--bg); color: var(--text-main); font-family: var(--font-sans); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         
-        body::after {
-            content: ""; position: fixed; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-            pointer-events: none; z-index: 9999; mix-blend-mode: overlay;
-        }
+        /* FULL COLOR IMAGES */
+        img { filter: none !important; grayscale: 0 !important; -webkit-filter: grayscale(0) !important; }
 
         h1, h2, h3, h4, .cinzel { font-family: var(--font-royal); text-transform: uppercase; font-weight: 400; letter-spacing: 3px; }
         p.serif { font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.6; color: var(--text-muted); }
@@ -44,9 +41,9 @@
         #luxury-intro { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; background: #000; transition: 1.2s cubic-bezier(0.9, 0, 0.1, 1); }
         .intro-bg { position: absolute; inset: 0; background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%); }
         .intro-content { position: relative; z-index: 10; text-align: center; width: 90%; }
-        .lux-reveal { font-family: var(--font-royal); font-size: clamp(1.2rem, 6vw, 3.5rem); color: transparent; background: var(--gold-grad); -webkit-background-clip: text; letter-spacing: 0.4em; opacity: 0; filter: blur(40px); transform: scale(0.8); animation: magicReveal 1.5s forwards; }
+        .lux-reveal { font-family: var(--font-royal); font-size: clamp(1.2rem, 6vw, 3.5rem); color: transparent; background: var(--gold-grad); -webkit-background-clip: text; letter-spacing: 0.4em; opacity: 0; transform: scale(0.8); animation: magicReveal 1.5s forwards; }
         .serving-text { font-family: var(--font-royal); font-size: 0.7rem; color: var(--gold-soft); margin-top: 20px; letter-spacing: 5px; opacity: 0; animation: fadeIn 0.5s 0.8s forwards; }
-        @keyframes magicReveal { to { opacity: 1; filter: blur(0px); transform: scale(1); } }
+        @keyframes magicReveal { to { opacity: 1; transform: scale(1); } }
         @keyframes fadeIn { to { opacity: 1; } }
         body.loaded #luxury-intro { transform: translateY(-100%); pointer-events: none; }
 
@@ -64,15 +61,15 @@
         .hero { position: relative; height: 100vh; width: 100vw; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; background: #000; }
         .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: 1.5s ease-in-out; z-index: 1; filter: brightness(0.7); }
         .hero-bg.active { opacity: 1; }
-        .hero-content { position: relative; z-index: 10; width: 90%; pointer-events: auto; }
+        .hero-content { position: relative; z-index: 10; width: 90%; }
         .hero-title { font-size: clamp(2.5rem, 8vw, 5.5rem); line-height: 1.2; margin-bottom: 40px; }
 
-        /* --- BRAND & OWNER SECTIONS (RE-STORED) --- */
+        /* --- BRAND & OWNER (VERTICAL ON DESKTOP) --- */
         .lux-flex-sec { padding: 120px 10%; display: flex; align-items: center; gap: 80px; background: #080808; overflow: hidden; }
         .lux-flex-sec:nth-child(even) { flex-direction: row-reverse; background: #000; }
         .flex-img { flex: 1; min-width: 45%; border: 1px solid #1a1a1a; padding: 15px; background: #050505; }
-        .flex-img img { width: 100%; filter: grayscale(100%); transition: 1s cubic-bezier(0.2, 1, 0.3, 1); }
-        .lux-flex-sec:hover img { filter: grayscale(0%); transform: scale(1.03); }
+        .flex-img img { width: 100%; display: block; transition: 1s cubic-bezier(0.2, 1, 0.3, 1); }
+        .lux-flex-sec:hover img { transform: scale(1.03); }
         .flex-text { flex: 1.5; min-width: 45%; }
         .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin: 40px 0; border-top: 1px solid #222; padding-top: 30px; }
         .stat-box h3 { font-size: 2.2rem; color: var(--gold-solid); font-family: var(--font-royal); }
@@ -80,52 +77,65 @@
         .sm-icon { width: 55px; height: 55px; border: 1px solid #222; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--gold-solid); font-size: 1.2rem; transition: 0.4s; background: rgba(255,255,255,0.02); margin-right: 15px; }
         .sm-icon:hover { border-color: var(--gold-solid); background: var(--gold-solid); color: #000; transform: translateY(-8px); }
 
-        /* --- SERVICE SLIDER (HORIZONTAL) --- */
-        .srv-slider-sec { padding: 100px 0; background: #030303; }
-        .srv-track-container { display: flex; overflow-x: auto; gap: 30px; padding: 0 10% 50px; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .srv-track-container::-webkit-scrollbar { display: none; }
-        .srv-slide-card { flex: 0 0 450px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; transition: 0.5s; position: relative; }
-        .srv-slide-card:hover { border-color: var(--gold-solid); }
-        .srv-card-img-box { width: 100%; height: 550px; overflow: hidden; }
-        .srv-card-img-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); transition: 1.5s; }
-        .srv-slide-card:hover .srv-card-img-box img { transform: scale(1.05); filter: brightness(0.9); }
-        .srv-card-details { padding: 40px; }
-        .srv-card-details h3 { font-size: 1.5rem; margin-bottom: 20px; }
-        .srv-points { list-style: none; margin-bottom: 30px; }
-        .srv-points li { font-family: var(--font-serif); color: #777; margin-bottom: 12px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-        .srv-points li::before { content: "—"; color: var(--gold-solid); }
-
         /* --- YT SLIDER --- */
-        .yt-premium-sec { padding: 100px 5%; background: #050505; border-top: 1px solid #111; border-bottom: 1px solid #111; }
-        .yt-track { display: flex; gap: 30px; overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; padding-bottom: 40px; }
-        .yt-track::-webkit-scrollbar { display: none; }
+        .yt-premium-sec { padding: 100px 5%; background: #050505; border-top: 1px solid #111; }
+        .yt-track { display: flex; gap: 30px; overflow-x: auto; padding-bottom: 30px; scroll-snap-type: x mandatory; }
+        .yt-track::-webkit-scrollbar { height: 6px; display: block; }
+        .yt-track::-webkit-scrollbar-thumb { background: var(--gold-grad); border-radius: 10px; }
         .yt-card { flex: 0 0 80%; min-width: 320px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 10px; }
         @media (min-width: 1024px) { .yt-card { flex: 0 0 45%; } }
         .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .yt-video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .yt-video-box iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
-        /* --- SIGNATURE GALLERY (DYNAMIC GRID) --- */
+        /* --- SERVICES (DESKTOP VERTICAL / MOBILE HORIZONTAL) --- */
+        .srv-slider-sec { padding: 100px 10%; background: #030303; }
+        .srv-track-container { display: flex; flex-direction: column; gap: 80px; }
+        .srv-slide-card { display: flex; align-items: center; gap: 60px; width: 100%; background: #080808; border: 1px solid #1a1a1a; overflow: hidden; }
+        .srv-slide-card:nth-child(even) { flex-direction: row-reverse; }
+        .srv-card-img-box { flex: 1; height: 550px; overflow: hidden; }
+        .srv-card-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 1.5s; }
+        .srv-slide-card:hover .srv-card-img-box img { transform: scale(1.05); }
+        .srv-card-details { flex: 1.2; padding: 40px; }
+        .srv-card-details h3 { font-size: 2.2rem; margin-bottom: 25px; }
+        .srv-points { list-style: none; margin-bottom: 35px; }
+        .srv-points li { font-family: var(--font-serif); color: #777; margin-bottom: 15px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+        .srv-points li::before { content: "—"; color: var(--gold-solid); }
+
+        @media (max-width: 991px) {
+            .srv-slider-sec { padding: 80px 0; }
+            .srv-track-container { flex-direction: row; overflow-x: auto; padding: 0 5% 50px; scroll-snap-type: x mandatory; }
+            .srv-track-container::-webkit-scrollbar { height: 6px; display: block; }
+            .srv-track-container::-webkit-scrollbar-thumb { background: var(--gold-grad); border-radius: 10px; }
+            .srv-slide-card { flex: 0 0 85vw; flex-direction: column !important; scroll-snap-align: center; }
+            .srv-card-img-box { width: 100%; height: 350px; }
+            .srv-card-details { padding: 30px 20px; text-align: center; }
+        }
+
+        /* --- GALLERY RESTORED (1-2-3-2 LOGIC) --- */
         .gallery-sec { padding: 120px 5%; background: #000; text-align: center; }
-        .tab-btn { background: none; border: none; color: #555; font-family: var(--font-royal); font-size: 0.9rem; letter-spacing: 3px; cursor: pointer; transition: 0.4s; padding: 0 20px 10px; border-bottom: 2px solid transparent; }
+        .col-tabs { margin-bottom: 60px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; color: #555; font-family: var(--font-royal); font-size: 0.9rem; letter-spacing: 3px; cursor: pointer; transition: 0.4s; padding: 10px 25px; border-bottom: 2px solid transparent; }
         .tab-btn.active { color: var(--gold-solid); border-bottom-color: var(--gold-solid); }
         
-        .masonry-grid { display: none; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; grid-gap: 20px; grid-auto-flow: dense; padding-top: 60px; }
+        .masonry-grid { display: none; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; grid-gap: 20px; grid-auto-flow: dense; }
         .masonry-grid.active { display: grid; animation: luxReveal 1.2s forwards; }
         .g-item { position: relative; overflow: hidden; border: 1px solid #111; background: #080808; }
-        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: 1s; filter: grayscale(100%); }
-        .g-item:hover img { filter: grayscale(0%); transform: scale(1.08); }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: 1s; }
+        .g-item:hover img { transform: scale(1.08); }
 
-        /* 1-2-3-2 logic Spans */
         .g-item.span-2 { grid-column: span 2; }
         .g-item.tall { grid-row: span 2; }
         .g-item.big { grid-column: span 2; grid-row: span 2; }
 
-        @keyframes luxReveal { from { opacity: 0; transform: translateY(40px); filter: blur(15px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @media (max-width: 991px) {
+            .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
+        }
 
-        /* --- TESTIMONIAL MARQUEE (16 COUPLES) --- */
-        .marquee-sec { padding: 120px 0; background: #080808; overflow: hidden; border-top: 1px solid #111; }
-        .rev-track { display: flex; animation: scrollMarquee 120s linear infinite; width: max-content; }
-        .rev-card { width: 450px; padding: 50px; background: #0c0c0c; border: 1px solid #1a1a1a; margin: 0 20px; }
+        /* --- TESTIMONIALS --- */
+        .marquee-sec { padding: 120px 0; background: #080808; overflow: hidden; }
+        .rev-track { display: flex; animation: scrollMarquee 150s linear infinite; width: max-content; }
+        .rev-card { width: 550px; padding: 60px; background: #0c0c0c; border: 1px solid #1a1a1a; margin: 0 25px; }
+        .rev-card p.serif { font-size: 1.15rem; color: #aaa; line-height: 1.8; margin-bottom: 25px; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- INQUIRY FORM --- */
@@ -135,7 +145,7 @@
         .input-group label { font-family: var(--font-royal); font-size: 0.75rem; color: var(--gold-solid); letter-spacing: 3px; }
         .input-group input, .input-group textarea { width: 100%; background: transparent; border: none; padding: 18px 0; color: #fff; font-family: var(--font-serif); font-size: 1.4rem; outline: none; resize: none; }
 
-        /* --- BIG FOOTER --- */
+        /* --- FOOTER --- */
         footer { position: relative; background: #020202; padding: 160px 8% 60px; border-top: 1px solid #1a1a1a; overflow: hidden; }
         .footer-watermark { position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-family: var(--font-royal); font-size: 18vw; color: rgba(255,255,255,0.015); z-index: 0; white-space: nowrap; pointer-events: none; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; position: relative; z-index: 2; }
@@ -143,12 +153,8 @@
         .f-col h4 { color: var(--gold-solid); font-size: 0.9rem; margin-bottom: 30px; letter-spacing: 4px; border-bottom: 1px solid #222; padding-bottom: 10px; }
         .f-col a, .f-col p { display: block; color: #666; margin-bottom: 18px; font-family: var(--font-serif); font-size: 1.15rem; }
         .f-col a:hover { color: #fff; transform: translateX(10px); }
-        .credit-tag { position: absolute; bottom: 20px; right: 5%; font-family: var(--font-royal); font-size: 0.6rem; color: #444; letter-spacing: 2px; }
 
         @media (max-width: 991px) {
-            .lux-flex-sec, .lux-flex-sec:nth-child(even) { flex-direction: column !important; text-align: center; }
-            .srv-slide-card { flex: 0 0 85vw; }
-            .masonry-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
@@ -175,9 +181,8 @@
         <div class="hero-bg active" style="background-image: url('https://lh3.googleusercontent.com/d/1VYoajVVoOg4ssrJvblIwShCF5H6tY9Cq');"></div>
         <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1Q_ORB_Ymrhrdr8tdhNznC0rqRhB6kVHk');"></div>
         <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1FU63RH4D34mcSdr4e8C6RpWv0k3bynUg');"></div>
-        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/d/1uoHvI9FnU3Zp0il17bX-YOBjrWbzk-P_');"></div>
         <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">The Power Behind <br><span class="gold-text">The Image</span></h1>
+            <h1 class="hero-title">The Power Behind <br><span class="gold-text">The Image</span></h1>
             <div style="display: flex; gap: 20px; justify-content: center;">
                 <a href="#enquiry" class="lux-btn">RESERVE DATE</a>
                 <a href="#collection" class="lux-btn" style="border-color: #fff; color: #fff;">VIEW GALLERY</a>
@@ -185,11 +190,9 @@
         </div>
     </section>
 
-    <!-- BRAND EMPIRE (RESTORED) -->
+    <!-- BRAND EMPIRE -->
     <section class="lux-flex-sec">
-        <div class="flex-img" data-aos="fade-right">
-            <img src="https://lh3.googleusercontent.com/d/1lrqQLFB83fxCELjdQWR8fFLFUWkSnGlu">
-        </div>
+        <div class="flex-img" data-aos="fade-right"><img src="https://lh3.googleusercontent.com/d/1lrqQLFB83fxCELjdQWR8fFLFUWkSnGlu"></div>
         <div class="flex-text" data-aos="fade-left">
             <h4 class="gold-text">L'EMPIRE</h4>
             <h2>Shivam Wadhwa Photography</h2>
@@ -208,15 +211,13 @@
         </div>
     </section>
 
-    <!-- OWNER PROFILE (RESTORED) -->
+    <!-- OWNER PROFILE -->
     <section class="lux-flex-sec">
-        <div class="flex-img" data-aos="fade-left">
-            <img src="https://lh3.googleusercontent.com/d/1gVmz-UQivvy_pzX7pqS9KjVDCS8o1LvD">
-        </div>
+        <div class="flex-img" data-aos="fade-left"><img src="https://lh3.googleusercontent.com/d/1gVmz-UQivvy_pzX7pqS9KjVDCS8o1LvD"></div>
         <div class="flex-text" data-aos="fade-right">
             <h4 class="gold-text">THE CREATOR</h4>
-            <h2 style="font-size: 2.8rem; margin-top: 10px;">Shivam Wadhwa</h2>
-            <p class="serif" style="margin-top: 20px; color: #777;">"I believe in the magic of unposed moments and the power of a single frame to tell an entire story. Every ritual is a visual masterpiece waiting to be preserved."</p>
+            <h2 style="font-size: 2.8rem;">Shivam Wadhwa</h2>
+            <p class="serif">"I believe in the magic of unposed moments and the power of a single frame to tell an entire story. Every ritual is a visual masterpiece waiting to be preserved."</p>
             <div style="display:flex; gap:15px; margin-top:30px;">
                 <a href="https://www.instagram.com/shivam_wadhwa97/" target="_blank" class="sm-icon"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/shivam.wadhwa.9256" target="_blank" class="sm-icon"><i class="fab fa-facebook-f"></i></a>
@@ -225,17 +226,17 @@
         </div>
     </section>
 
-    <!-- VIDEO SLIDER (MIDDLE) -->
+    <!-- VIDEO SLIDER -->
     <section class="yt-premium-sec">
         <div style="text-align:center; margin-bottom: 40px;"><h4 class="gold-text">Cinematic Legacy</h4></div>
         <div class="yt-track">
-            <div class="yt-card"><div class="yt-video-box"><iframe id="p1" src="https://www.youtube.com/embed/0R-bPAy-YQ4?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">PRE-WEDDING CINEMA</div></div>
-            <div class="yt-card"><div class="yt-video-box"><iframe id="p2" src="https://www.youtube.com/embed/IjozaKul5so?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">LUXURY WEDDING FILM</div></div>
-            <div class="yt-card"><div class="yt-video-box"><iframe id="p3" src="https://www.youtube.com/embed/fjxhr7zUbw8?enablejsapi=1" allowfullscreen></iframe></div><div style="text-align:center; padding:15px; font-family:var(--font-royal); font-size:0.75rem; color:var(--gold-solid);">PUNJABI TEASER</div></div>
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p1" src="https://www.youtube.com/embed/0R-bPAy-YQ4?enablejsapi=1"></iframe></div></div>
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p2" src="https://www.youtube.com/embed/IjozaKul5so?enablejsapi=1"></iframe></div></div>
+            <div class="yt-card"><div class="yt-video-box"><iframe id="p3" src="https://www.youtube.com/embed/fjxhr7zUbw8?enablejsapi=1"></iframe></div></div>
         </div>
     </section>
 
-    <!-- SERVICES (HORIZONTAL SLIDER) -->
+    <!-- SERVICES (7 TOTAL CLICKABLE) -->
     <section class="srv-slider-sec" id="services">
         <div style="text-align:center; margin-bottom: 60px;"><h4 class="gold-text">OUR EXPERTISE</h4></div>
         <div class="srv-track-container">
@@ -244,7 +245,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/1_mrHQWPKMqh13d7R8LiKQs8UYG0pas2J"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">01. Wedding Cinema</h3>
-                    <ul class="srv-points"><li>4K Narrative Films</li><li>Signature Color Grading</li><li>Multi-Angle Captures</li></ul>
+                    <ul class="srv-points"><li>4K Narrative Films</li><li>Signature Color Grading</li></ul>
                     <a onclick="wa('Wedding Cinema')" class="lux-btn">GET QUOTE</a>
                 </div>
             </div>
@@ -253,7 +254,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/1zP705D9zG35jkjjhHsHH59RakJyqfPs0"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">02. Candid Soul Art</h3>
-                    <ul class="srv-points"><li>Emotional Captures</li><li>Zero Interference</li><li>Fine Art Retouching</li></ul>
+                    <ul class="srv-points"><li>Emotional Captures</li><li>Zero Interference</li></ul>
                     <a onclick="wa('Candid Soul Art')" class="lux-btn">BOOK SESSION</a>
                 </div>
             </div>
@@ -262,7 +263,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/14uJoTnayhkuQF4glZlx-SWP1zZLvAuvy"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">03. Pre-Wedding Tales</h3>
-                    <ul class="srv-points"><li>Global Scouting</li><li>Editorial Styling</li><li>Cinematic Trailer</li></ul>
+                    <ul class="srv-points"><li>Global Scouting</li><li>Editorial Styling</li></ul>
                     <a onclick="wa('Pre-Wedding Tales')" class="lux-btn">DISCUSS LOCATIONS</a>
                 </div>
             </div>
@@ -271,7 +272,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/1AS6Pv5IWCRCOVL2RdedkR0kQ7Fnctw-f"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">04. Sacred Rituals</h3>
-                    <ul class="srv-points"><li>Anand Karaj Depth</li><li>Traditional Nupitals</li><li>Family Portraits</li></ul>
+                    <ul class="srv-points"><li>Anand Karaj Depth</li><li>Traditional Nupitals</li></ul>
                     <a onclick="wa('Sacred Rituals')" class="lux-btn">ENQUIRE</a>
                 </div>
             </div>
@@ -280,7 +281,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/1W7C4vArkEa6uyVb9SGJ6gH2JHtHegFPD"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">05. Editorial Portraits</h3>
-                    <ul class="srv-points"><li>Vogue Lighting</li><li>Bridal Glamour</li><li>High-End Retouch</li></ul>
+                    <ul class="srv-points"><li>Vogue Lighting</li><li>Bridal Glamour</li></ul>
                     <a onclick="wa('Editorial Portraits')" class="lux-btn">VIEW STYLES</a>
                 </div>
             </div>
@@ -289,7 +290,7 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/11_iOeB6BwR4nhhu74rSmDjkMKLdms7do"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">06. Global Destination</h3>
-                    <ul class="srv-points"><li>International Crew</li><li>Logistics Handling</li><li>Travel Coverage</li></ul>
+                    <ul class="srv-points"><li>International Crew</li><li>Logistics Handling</li></ul>
                     <a onclick="wa('Global Destination')" class="lux-btn">PLAN SHOOT</a>
                 </div>
             </div>
@@ -298,16 +299,16 @@
                 <div class="srv-card-img-box"><img src="https://lh3.googleusercontent.com/d/1C6HyRjGckjeme35IQdwOYUcmqnVomL0f"></div>
                 <div class="srv-card-details">
                     <h3 class="gold-text">07. Heirloom Albums</h3>
-                    <ul class="srv-points"><li>Handcrafted Design</li><li>Archival Quality</li><li>Story Layouts</li></ul>
+                    <ul class="srv-points"><li>Handcrafted Design</li><li>Archival Quality</li></ul>
                     <a onclick="wa('Heirloom Albums')" class="lux-btn">SEE DESIGNS</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SIGNATURE GALLERY (1-2-3-2 TYPE DYNAMIC GRID) -->
+    <!-- GALLERY (1-2-3-2 LOGIC) -->
     <section class="gallery-sec" id="collection">
-        <h2 style="font-family: var(--font-royal); margin-bottom: 50px; letter-spacing: 5px;">THE SIGNATURE COLLECTION</h2>
+        <h2 style="margin-bottom: 50px;">THE SIGNATURE COLLECTION</h2>
         <div class="col-tabs">
             <button class="tab-btn active" onclick="openTab(event, 'tab-wedding')">THE WEDDING DAY</button>
             <button class="tab-btn" onclick="openTab(event, 'tab-bridal')">BRIDAL PORTRAITS</button>
@@ -343,29 +344,22 @@
         </div>
     </section>
 
-    <!-- 16 PREMIUM TESTIMONIALS (AUTO SLIDING MARQUEE) -->
+    <!-- 10 SEO TESTIMONIALS -->
     <section class="marquee-sec">
-        <h4 class="gold-text" style="text-align: center; margin-bottom: 50px; letter-spacing: 5px;">COUPLE TESTIMONIALS</h4>
+        <h4 class="gold-text" style="text-align: center; margin-bottom: 50px;">COUPLE TESTIMONIALS</h4>
         <div class="rev-track">
-            <!-- 16 COUPLES -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Best in Phagwara. Captured our soul beautifully."</p><h5 class="cinzel">- Amrit & Jaspreet (Ludhiana)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage. Shivam's lighting is royal."</p><h5 class="cinzel">- Rohan & Anjali (Delhi)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"A creative genius. Every frame is cinematic."</p><h5 class="cinzel">- Vikram & Sunita (Chandigarh)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Truly the gold standard of Punjabi weddings."</p><h5 class="cinzel">- Harjot & Simran (Amritsar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Color grading is simple the best in industry."</p><h5 class="cinzel">- Parth & Mehak (Jalandhar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Luxury team in every sense. Worth every rupee."</p><h5 class="cinzel">- Navdeep & Simran (Amritsar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Our pre-wedding felt like a Bollywood movie."</p><h5 class="cinzel">- Arjun & Diya (Delhi)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Beautifully captured parental emotions."</p><h5 class="cinzel">- Karan & Preeti (Mumbai)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Candid photography is out of this world."</p><h5 class="cinzel">- Sukhman & Reet (Patiala)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Bridal portraits are magical. Simply best."</p><h5 class="cinzel">- Ishita & Sameer (London)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Handled our 3-day destination wedding perfectly."</p><h5 class="cinzel">- Rahul & Priya (Rajasthan)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Pure luxury cinema. Looks like Netflix."</p><h5 class="cinzel">- Gurpreet & Nimrat (Phagwara)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Absolute perfection. Final gallery mind blowing."</p><h5 class="cinzel">- Inder & Jasleen (Jalandhar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Detailing is insane. Highly recommended."</p><h5 class="cinzel">- Sunny & Pooja (New York)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Captures Sikh rituals with immense respect."</p><h5 class="cinzel">- Manpreet & Kiran (Bathinda)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The vibe and energy they bring is unmatched."</p><h5 class="cinzel">- Sahil & Guneet (Mohali)</h5></div>
-            <!-- Duplicated for Loop -->
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Best in Phagwara. Captured our soul beautifully."</p><h5 class="cinzel">- Amrit & Jaspreet</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Best Sikh Wedding Photographer in Amritsar! Our Anand Karaj ceremony was captured with such spiritual depth and cinematic royal vibes."</p><h5 class="cinzel">- Amrit & Jaspreet (Amritsar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The most luxury Hindu Wedding coverage in Delhi. Every phera and ritual was filmed with cinematic perfection. Highly recommend."</p><h5 class="cinzel">- Rohan & Anjali (Delhi NCR)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Our Pre-wedding shoot in Chandigarh felt like a movie. Shivam knows the best locations and how to make you feel comfortable."</p><h5 class="cinzel">- Vikram & Sunita (Chandigarh)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Truly elite Punjabi Wedding photography in Ludhiana. They captured the energy of the Jago and Reception perfectly."</p><h5 class="cinzel">- Harjot & Simran (Ludhiana)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Outstanding candid photography in Jalandhar. He captured emotions that we missed. The color grading is world-class."</p><h5 class="cinzel">- Parth & Mehak (Jalandhar)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Handled our NRI destination wedding flawlessly. Professional, punctual, and highly creative. Best wedding crew in Phagwara."</p><h5 class="cinzel">- Navdeep & Simran (Phagwara)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Beautifully captured parental emotions at our Hindu wedding in Mumbai. The cinematic teaser went viral!"</p><h5 class="cinzel">- Karan & Preeti (Mumbai)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Bridal portraits were magical. Simply the best wedding films in Punjab. They make you look like royalty."</p><h5 class="cinzel">- Ishita & Sameer (Patiala)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Perfect execution for our 3-day Sikh wedding. The detailing in the Anand Karaj photos is insane."</p><h5 class="cinzel">- Manpreet & Kiran (Bathinda)</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Pure luxury cinema. Looks like a Netflix production. If you want the best in Phagwara, just book SWP."</p><h5 class="cinzel">- Gurpreet & Nimrat (Phagwara)</h5></div>
+            <!-- Duplicate loop -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Best Sikh Wedding Photographer in Amritsar! Truly royal vibes."</p><h5 class="cinzel">- Amrit & Jaspreet</h5></div>
         </div>
     </section>
 
@@ -373,14 +367,14 @@
     <section class="form-sec" id="enquiry">
         <h4 class="gold-text">Reserve Your Legacy</h4>
         <div class="lux-form">
-            <div class="input-group"><label>FULL NAME</label><input type="text" id="name" placeholder="E.g. Arjun & Diya"></div>
-            <div class="input-group"><label>EVENT DATE</label><input type="text" id="date" placeholder="DD/MM/YYYY"></div>
-            <div class="input-group"><label>EVENT MESSAGE</label><textarea id="msg" rows="1" placeholder="Tell us about your event"></textarea></div>
+            <div class="input-group"><label>NAMES</label><input type="text" id="name" placeholder="Arjun & Diya"></div>
+            <div class="input-group"><label>DATE</label><input type="text" id="date" placeholder="DD/MM/YYYY"></div>
+            <div class="input-group"><label>MESSAGE</label><textarea id="msg" rows="1" placeholder="Tell us about your event"></textarea></div>
             <button onclick="sendEnquiry()" class="lux-btn" style="width:100%">SEND WHATSAPP ENQUIRY</button>
         </div>
     </section>
 
-    <!-- BIG FOOTER (RESTORED) -->
+    <!-- BIG FOOTER -->
     <footer>
         <div class="footer-watermark">SHIVAM</div>
         <div class="footer-grid">
@@ -397,8 +391,10 @@
             <div class="f-col"><h4>STUDIOS</h4><p>Phagwara, Punjab</p><p>New Delhi, NCR</p></div>
             <div class="f-col"><h4>CONTACT</h4><a href="tel:+917888584171" style="color:var(--gold-solid);">+91 78885 84171</a></div>
         </div>
-        <div style="margin-top:100px; text-align:center; color:#333; font-size:0.7rem; letter-spacing:4px">© 2026 SHIVAM WADHWA PHOTOGRAPHY. ALL RIGHTS RESERVED.</div>
-        <div class="credit-tag">Made By CodeWaveStudios</div>
+        <div style="margin-top:100px; text-align:center; color:#333; font-size:0.7rem; letter-spacing:4px">
+            © 2026 SHIVAM WADHWA PHOTOGRAPHY. ALL RIGHTS RESERVED. <br>
+            <span style="color:#222; margin-top:10px; display:block; letter-spacing:2px;">MADE BY CODEWAVE STUDIOS</span>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -421,7 +417,7 @@
             slides[sIndex].classList.remove('active');
             sIndex = (sIndex + 1) % slides.length;
             slides[sIndex].classList.add('active');
-        }, 4500);
+        }, 4000);
 
         function sendEnquiry() {
             const n = document.getElementById('name').value;
@@ -431,18 +427,8 @@
         }
 
         function wa(s) {
-            let msg = `Hi Shivam, interested in ${s}. Please share details.`;
-            window.open(`https://wa.me/917888584171?text=${encodeURIComponent(msg)}`, '_blank');
+            window.open(`https://wa.me/917888584171?text=Interested in ${s}`, '_blank');
         }
-
-        var tag = document.createElement('script'); tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0]; firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        var players = [];
-        function onYouTubeIframeAPIReady() {
-            var ids = ['p1', 'p2', 'p3'];
-            ids.forEach(function(id) { players.push(new YT.Player(id, { events: { 'onStateChange': onPlayerStateChange } })); });
-        }
-        function onPlayerStateChange(event) { if (event.data == YT.PlayerState.PLAYING) { players.forEach(function(p) { if (p.getIframe().id !== event.target.getIframe().id) { p.pauseVideo(); } }); } }
     </script>
 </body>
 </html>
