@@ -110,10 +110,17 @@
         .g-item img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.8s; }
         .g-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
 
-        /* --- YT SLIDER --- */
-        .yt-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding: 0 5% 50px; scrollbar-width: none; }
-        .yt-slider::-webkit-scrollbar { display: none; }
-        .yt-slide { flex: 0 0 85%; scroll-snap-align: center; border: 1px solid #222; background: #080808; padding: 10px; }
+      /* --- LUXURY YT SLIDER CSS --- */
+        .yt-premium-sec { padding: 100px 5%; background: #000; border-top: 1px solid #111; }
+        .yt-lux-grid { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 60px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        .yt-lux-grid::-webkit-scrollbar { display: none; }
+        .yt-lux-card { flex: 0 0 75%; min-width: 300px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 12px; transition: 0.5s; position: relative; }
+        @media (min-width: 1024px) { .yt-lux-card { flex: 0 0 40%; } }
+        .yt-lux-card:hover { border-color: var(--gold-solid); transform: translateY(-10px); }
+        .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .yt-video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: grayscale(100%); transition: 0.8s; }
+        .yt-lux-card:hover iframe { filter: grayscale(0%); }
+        .yt-lux-caption { margin-top: 20px; font-family: var(--font-royal); font-size: 0.8rem; letter-spacing: 3px; color: var(--gold-solid); text-align: center; border-top: 1px solid #222; padding-top: 15px; } 
 
         /* --- AUTO REVIEWS --- */
         .rev-track { display: flex; animation: scrollMarquee 40s linear infinite; width: max-content; }
@@ -232,7 +239,39 @@
                 <a href="tel:+917888584171" class="sm-icon"><i class="fas fa-phone"></i></a>
             </div>
         </div>
-    </section>
+    </section> <!-- NEW PREMIUM CINEMATIC SLIDER -->
+    <section class="yt-premium-sec">
+        <div style="text-align:center; margin-bottom: 50px;">
+            <h4 class="gold-text" data-aos="fade-up">Cinematic Legacy</h4>
+            <h2 class="cinzel" style="font-size: 1.5rem;" data-aos="fade-up">Our Visual Masterpieces</h2>
+        </div>
+
+        <div class="yt-lux-grid">
+            <!-- Slide 1 -->
+            <div class="yt-lux-card" data-aos="fade-up">
+                <div class="yt-video-box">
+                    <iframe src="https://www.youtube.com/embed/0R-bPAy-YQ4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="yt-lux-caption">PRE-WEDDING SHOOT</div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="yt-lux-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="yt-video-box">
+                    <iframe src="https://www.youtube.com/embed/IjozaKul5so" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="yt-lux-caption">4K LATEST CINEMATIC WEDDING</div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="yt-lux-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="yt-video-box">
+                    <iframe src="https://www.youtube.com/embed/fjxhr7zUbw8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="yt-lux-caption">PUNJAB'S BEST PRE-WEDDING TEASER</div>
+            </div>
+        </div>
+    </section> 
 
     <!-- 7 SERVICES (MOBILE SWIPE) -->
     <section id="services">
@@ -360,65 +399,43 @@
         </div>
     </section>
 
-    <!-- YT SLIDER -->
-    <section style="background: #000; text-align: center; padding: 100px 0;">
-        <h2 class="gold-text" style="margin-bottom: 50px;">Cinematic Legacy</h2>
-        <div class="yt-slider">
-           <div class="yt-slide">
- <div class="yt-slide">
-  <iframe
-    width="100%"
-    height="400"
-    src="https://www.youtube.com/embed/0R-bPAy-YQ4"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="yt-slide">
-  <iframe
-    width="100%"
-    height="400"
-    src="https://www.youtube.com/embed/IjozaKul5so"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-
-<div class="yt-slide">
-  <iframe
-    width="100%"
-    height="400"
-    src="https://www.youtube.com/embed/fjxhr7zUbw8"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-
-
-<div class="yt-slide">
-  <iframe width="100%" height="400"
-    src="https://www.youtube.com/embed/VmUj0Ib5u_8"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-
-    </section>
+    
 
     <!-- 8 AUTO REVIEWS -->
     <section style="padding: 100px 0; background: #080808; overflow: hidden;">
         <h4 class="gold-text" style="text-align: center; margin-bottom: 40px; letter-spacing: 5px;">TESTIMONIALS</h4>
         <div class="rev-track">
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Best photographer in Phagwara! Made our wedding a royal dream."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet (Ludhiana)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional Hindu ceremony coverage. Every frame felt like a movie."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali (Delhi)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. Heart and soul in every shot."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita (Chandigarh)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Unmatched professionalism in the industry. Highly recommended."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Harjot & Simran (Amritsar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Color grading and aesthetic finish are simply the best."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Parth & Mehak (Jalandhar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Luxury team. He knows how to capture the legacy."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Navdeep & Simran (Amritsar)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Simply amazing experience from start to finish."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Arjun & Diya (Delhi)</h5></div>
-            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The films are museum-grade. Truly royal feeling."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Karan & Preeti (Mumbai)</h5></div>
-        </div>
+           <div class="rev-track">
+            <!-- 1 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam Wadhwa Photography is undoubtedly the best in Phagwara. They didn't just take photos, they captured the very soul of our wedding. Every frame feels like a cinematic masterpiece."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet (Ludhiana)</h5></div>
+            <!-- 2 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage of our Hindu ceremony. Shivam and his team have a unique way with lighting that makes everything look royal and timeless. The cinematic teaser was beyond our expectations."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali (Delhi)</h5></div>
+            <!-- 3 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. He caught moments we didn't even realize were happening. If you want someone who puts heart and soul into every shot, he is the only one you should trust."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita (Chandigarh)</h5></div>
+            <!-- 4 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Unmatched professionalism in the wedding industry. From our first meeting to the final album delivery, everything was seamless. Their ability to handle large crowds while getting perfect shots is amazing."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Harjot & Simran (Amritsar)</h5></div>
+            <!-- 5 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The color grading and aesthetic finish of their work are simply the best. They have a very modern, high-end approach to traditional Punjabi weddings. Every guest was praising their team's work."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Parth & Mehak (Jalandhar)</h5></div>
+            <!-- 6 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Luxury team in every sense. Shivam knows how to capture the legacy of a family. The heirloom albums they provided are of museum-grade quality and will be cherished by us forever."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Navdeep & Simran (Amritsar)</h5></div>
+            <!-- 7 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Our pre-wedding shoot was like a movie experience. Shivam scouted the best locations and guided us through every pose perfectly. We felt so comfortable and the results are absolutely stunning."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Arjun & Diya (Delhi)</h5></div>
+            <!-- 8 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"The films are museum-grade. Truly royal feeling. They captured the emotions of our parents so beautifully. It is not just a wedding video, it is a treasure of memories for our entire family."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Karan & Preeti (Mumbai)</h5></div>
+            <!-- 9 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Their candid photography is out of this world. No forced poses, just pure emotions and joy. They stayed late to ensure every ritual was covered. Truly dedicated and passionate team."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Sukhman & Reet (Patiala)</h5></div>
+            <!-- 10 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Incredible experience! The way they use natural light for bridal portraits is magical. I have never seen such high-end retouching that still looks so natural and elegant. Simply the best."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Ishita & Sameer (London)</h5></div>
+            <!-- 11 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"We booked them for our destination wedding and they handled everything perfectly. The crew was professional, punctual, and very easy to work with throughout the intense 3-day event."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rahul & Priya (Rajasthan)</h5></div>
+            <!-- 12 -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"If you are looking for the gold standard of cinematic wedding films in Punjab, don't look anywhere else. Shivam Wadhwa Photography delivers exactly what they promise—pure luxury."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Gurpreet & Nimrat (Phagwara)</h5></div>
+            
+            <!-- Loop Stability (Pehle 3 reviews repeat taaki animation jump na kare) -->
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam Wadhwa Photography is undoubtedly the best in Phagwara. They didn't just take photos, they captured the very soul of our wedding."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Amrit & Jaspreet</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Exceptional coverage of our Hindu ceremony. Shivam and his team have a unique way with lighting that makes everything look royal."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Rohan & Anjali</h5></div>
+            <div class="rev-card"><p class="gold-text">★★★★★</p><p class="serif">"Shivam is a creative genius. He caught moments we didn't even realize were happening. Heart and soul in every single shot."</p><h5 class="cinzel" style="margin-top:20px; color:var(--gold-solid)">- Vikram & Sunita</h5></div>
+        </div> 
     </section>
 
     <!-- FORM -->
