@@ -110,19 +110,15 @@
         .g-item img { width: 100%; height: auto; display: block; filter: grayscale(20%); transition: 0.8s; }
         .g-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
 
-      /* --- LUXURY YT SLIDER CSS --- */
-        .yt-premium-sec { padding: 100px 5%; background: #000; border-top: 1px solid #111; }
-        .yt-lux-grid { display: flex; gap: 30px; overflow-x: auto; padding: 20px 0 60px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+     .yt-premium-sec { padding: 80px 5%; background: #000; border-top: 1px solid #111; }
+        .yt-lux-grid { display: flex; gap: 25px; overflow-x: auto; padding: 20px 0 50px; scrollbar-width: none; scroll-snap-type: x mandatory; }
         .yt-lux-grid::-webkit-scrollbar { display: none; }
-        .yt-lux-card { flex: 0 0 75%; min-width: 300px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 12px; transition: 0.5s; position: relative; }
+        .yt-lux-card { flex: 0 0 75%; min-width: 300px; scroll-snap-align: center; background: #080808; border: 1px solid #1a1a1a; padding: 10px; transition: 0.5s; }
         @media (min-width: 1024px) { .yt-lux-card { flex: 0 0 40%; } }
-        .yt-lux-card:hover { border-color: var(--gold-solid); transform: translateY(-10px); }
-        .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .yt-video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: grayscale(100%); transition: 0.8s; }
-        .yt-lux-card:hover iframe { filter: grayscale(0%); }
-        .yt-lux-caption { margin-top: 20px; font-family: var(--font-royal); font-size: 0.8rem; letter-spacing: 3px; color: var(--gold-solid); text-align: center; border-top: 1px solid #222; padding-top: 15px; } 
-
-        /* --- AUTO REVIEWS --- */
+        .yt-lux-card:hover { border-color: var(--gold-solid); transform: translateY(-5px); }
+        .yt-video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
+        .yt-video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .yt-lux-caption { margin-top: 15px; font-family: var(--font-royal); font-size: 0.75rem; letter-spacing: 2px; color: var(--gold-solid); text-align: center; border-top: 1px solid #222; padding-top: 12px; } 
         .rev-track { display: flex; animation: scrollMarquee 40s linear infinite; width: max-content; }
         .rev-card { width: 450px; padding: 60px; background: #080808; border: 1px solid #151515; flex-shrink: 0; margin: 0 25px; }
         @keyframes scrollMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -241,33 +237,18 @@
         </div>
     </section> <!-- NEW PREMIUM CINEMATIC SLIDER -->
     <section class="yt-premium-sec">
-        <div style="text-align:center; margin-bottom: 50px;">
-            <h4 class="gold-text" data-aos="fade-up">Cinematic Legacy</h4>
-            <h2 class="cinzel" style="font-size: 1.5rem;" data-aos="fade-up">Our Visual Masterpieces</h2>
-        </div>
-
+        <div style="text-align:center; margin-bottom: 30px;"><h4 class="gold-text">Cinematic Legacy</h4></div>
         <div class="yt-lux-grid">
-            <!-- Slide 1 -->
-            <div class="yt-lux-card" data-aos="fade-up">
-                <div class="yt-video-box">
-                    <iframe src="https://www.youtube.com/embed/0R-bPAy-YQ4" frameborder="0" allowfullscreen></iframe>
-                </div>
+            <div class="yt-lux-card">
+                <div class="yt-video-box"><iframe id="p1" src="https://www.youtube.com/embed/0R-bPAy-YQ4?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
                 <div class="yt-lux-caption">PRE-WEDDING SHOOT</div>
             </div>
-
-            <!-- Slide 2 -->
-            <div class="yt-lux-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="yt-video-box">
-                    <iframe src="https://www.youtube.com/embed/IjozaKul5so" frameborder="0" allowfullscreen></iframe>
-                </div>
+            <div class="yt-lux-card">
+                <div class="yt-video-box"><iframe id="p2" src="https://www.youtube.com/embed/IjozaKul5so?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
                 <div class="yt-lux-caption">4K LATEST CINEMATIC WEDDING</div>
             </div>
-
-            <!-- Slide 3 -->
-            <div class="yt-lux-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="yt-video-box">
-                    <iframe src="https://www.youtube.com/embed/fjxhr7zUbw8" frameborder="0" allowfullscreen></iframe>
-                </div>
+            <div class="yt-lux-card">
+                <div class="yt-video-box"><iframe id="p3" src="https://www.youtube.com/embed/fjxhr7zUbw8?enablejsapi=1" frameborder="0" allowfullscreen></iframe></div>
                 <div class="yt-lux-caption">PUNJAB'S BEST PRE-WEDDING TEASER</div>
             </div>
         </div>
@@ -470,27 +451,58 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1200, once: true });
-        window.addEventListener('load', () => { setTimeout(() => { document.body.classList.add('loaded'); }, 2000); });
-        function openTab(evt, tabName) {
-            const grids = document.getElementsByClassName("masonry");
-            for (let i = 0; i < grids.length; i++) { grids[i].classList.remove("active"); }
-            const btns = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
+   <script>
+    // --- Existing Features ---
+    AOS.init({ duration: 1200, once: true });
+    window.addEventListener('load', () => { setTimeout(() => { document.body.classList.add('loaded'); }, 2000); });
+    
+    function openTab(evt, tabName) {
+        const grids = document.getElementsByClassName("masonry");
+        for (let i = 0; i < grids.length; i++) { grids[i].classList.remove("active"); }
+        const btns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+
+    let sIndex = 0;
+    const slides = document.querySelectorAll('.hero-bg');
+    setInterval(() => { slides[sIndex].classList.remove('active'); sIndex = (sIndex + 1) % slides.length; slides[sIndex].classList.add('active'); }, 4000);
+
+    function sendEnquiry() {
+        const n = document.getElementById('name').value;
+        const d = document.getElementById('date').value;
+        const m = document.getElementById('msg').value;
+        window.open(`https://wa.me/917888584171?text=New Inquiry:%0AName: ${n}%0ADate: ${d}%0ADetails: ${m}`, '_blank');
+    }
+
+    function wa(s) { window.open(`https://wa.me/917888584171?text=Interested in ${s} experience.`, '_blank'); }
+
+    // --- YouTube Auto-Pause Feature ---
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var players = [];
+    function onYouTubeIframeAPIReady() {
+        var ids = ['p1', 'p2', 'p3'];
+        ids.forEach(function(id) {
+            players.push(new YT.Player(id, {
+                events: { 'onStateChange': onPlayerStateChange }
+            }));
+        });
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            players.forEach(function(p) {
+                if (p.getIframe().id !== event.target.getIframe().id) {
+                    p.pauseVideo();
+                }
+            });
         }
-        let sIndex = 0;
-        const slides = document.querySelectorAll('.hero-bg');
-        setInterval(() => { slides[sIndex].classList.remove('active'); sIndex = (sIndex + 1) % slides.length; slides[sIndex].classList.add('active'); }, 4000);
-        function sendEnquiry() {
-            const n = document.getElementById('name').value;
-            const d = document.getElementById('date').value;
-            const m = document.getElementById('msg').value;
-            window.open(`https://wa.me/917888584171?text=New Inquiry:%0AName: ${n}%0ADate: ${d}%0ADetails: ${m}`, '_blank');
-        }
-        function wa(s) { window.open(`https://wa.me/917888584171?text=Interested in ${s} experience.`, '_blank'); }
-    </script>
+    }
+</script> 
 </body>
 </html>
